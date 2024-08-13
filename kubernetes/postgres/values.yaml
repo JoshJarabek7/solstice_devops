@@ -1,0 +1,32 @@
+global:
+  postgresql:
+    auth:
+      existingSecret: db-credentials
+      secretKeys:
+        adminPasswordKey: postgres-password
+        replicationPasswordKey: replication-password
+
+architecture: replication
+
+replication:
+  enabled: true
+  replicaCount: 2
+  synchronousCommit: "on"
+  applicationName: "solstice"
+
+primary:
+  persistence:
+    enabled: true
+    storageClass: "azure-disk"
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+
+readReplicas:
+  replicaCount: 2
+  persistence:
+    enabled: true
+    storageClass: "azure-disk"
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
