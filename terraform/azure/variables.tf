@@ -8,11 +8,6 @@ variable "resource_group_location" {
   type        = string
 }
 
-variable "environment" {
-  description = "The environment (e.g., dev, prod)."
-  type        = string
-}
-
 variable "vnet_name" {
   description = "The name of the virtual network."
   type        = string
@@ -78,40 +73,6 @@ variable "acr_admin_enabled" {
   type        = bool
 }
 
-variable "db_disk_size_gb" {
-  description = "The size of the managed disk for database in GB."
-  type        = number
-}
-
-variable "messaging_disk_size_gb" {
-  description = "The size of the managed disk for messaging service in GB."
-  type        = number
-}
-
-variable "backup_storage_account_name" {
-  description = "The name of the storage account for backups."
-  type        = string
-}
-
-variable "backup_container_name" {
-  description = "The name of the container in the storage account for backups."
-  type        = string
-}
-
-variable "db_disk_name" {
-  description = "The name of the database disk."
-  type        = string
-}
-
-variable "messaging_disk_name" {
-  description = "The name of the messaging disk."
-  type        = string
-}
-
-variable "backup_container_access_type" {
-  description = "Public/Private access to backup container."
-  type        = string
-}
 
 variable "identity_type" {
   description = "The identity type for access and authorization to cluster."
@@ -126,21 +87,6 @@ variable "sku_tier" {
 variable "availability_zones" {
   description = "The availability zones for the AKS cluster."
   type        = list(string)
-}
-
-variable "open_service_mesh_enabled" {
-  description = "Enable Open Service Mesh addon."
-  type        = bool
-}
-
-variable "http_application_routing_enabled" {
-  description = "Enable HTTP Application Routing addon."
-  type        = bool
-}
-
-variable "azure_policy_enabled" {
-  description = "Enable Azure Policy addon."
-  type        = bool
 }
 
 variable "enable_auto_scaling" {
@@ -168,38 +114,8 @@ variable "load_balancer_sku" {
   type        = string
 }
 
-variable "messaging_disk_storage_account_type" {
-  description = "The storage account type for the messaging disk."
-  type        = string
-}
-
-variable "messaging_disk_create_option" {
-  description = "The create option for the messaging disk."
-  type        = string
-}
-
-variable "db_disk_storage_account_type" {
-  description = "The storage account type for the database disk."
-  type        = string
-}
-
-variable "db_disk_create_option" {
-  description = "The create option for the database disk."
-  type        = string
-}
-
 variable "service_cidr" {
   description = "CIDR notation IP range from which to assign service cluster IPs."
-  type        = string
-}
-
-variable "backup_storage_account_tier" {
-  description = "The tier for the backup storage account."
-  type        = string
-}
-
-variable "backup_storage_account_replication_type" {
-  description = "The replication type for the backup storage account."
   type        = string
 }
 
